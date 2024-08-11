@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Elojob</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de Elojob</h1>
+    <form id="elojob-form">
+      <label for="current-elo">Elo Atual:</label>
+      <select id="current-elo">
+        <option value="iron-iv">Ferro IV</option>
+        <option value="iron-iii">Ferro III</option>
+        <option value="iron-ii">Ferro II</option>
+        <option value="iron-i">Ferro I</option>
+        <option value="bronze-iv">Bronze IV</option>
+        <option value="bronze-iii">Bronze III</option>
+        <option value="bronze-ii">Bronze II</option>
+        <option value="bronze-i">Bronze I</option>
+        <option value="silver-iv">Prata IV</option>
+        <option value="silver-iii">Prata III</option>
+        <option value="silver-ii">Prata II</option>
+        <option value="silver-i">Prata I</option>
+        <option value="gold-iv">Ouro IV</option>
+        <option value="gold-iii">Ouro III</option>
+        <option value="gold-ii">Ouro II</option>
+        <option value="gold-i">Ouro I</option>
+        <option value="platinum-iv">Platina IV</option>
+        <option value="platinum-iii">Platina III</option>
+        <option value="platinum-ii">Platina II</option>
+        <option value="platinum-i">Platina I</option>
+        <option value="emerald-iv">Esmeralda IV</option>
+        <option value="emerald-iii">Esmeralda III</option>
+        <option value="emerald-ii">Esmeralda II</option>
+        <option value="emerald-i">Esmeralda I</option>
+        <option value="diamond-iv">Diamante IV</option>
+        <option value="diamond-iii">Diamante III</option>
+        <option value="diamond-ii">Diamante II</option>
+        <option value="diamond-i">Diamante I</option>
+      </select>
+      
+      <label for="desired-elo">Elo Desejado:</label>
+      <select id="desired-elo">
+        <option value="iron-iv">Ferro IV</option>
+        <option value="iron-iii">Ferro III</option>
+        <option value="iron-ii">Ferro II</option>
+        <option value="iron-i">Ferro I</option>
+        <option value="bronze-iv">Bronze IV</option>
+        <option value="bronze-iii">Bronze III</option>
+        <option value="bronze-ii">Bronze II</option>
+        <option value="bronze-i">Bronze I</option>
+        <option value="silver-iv">Prata IV</option>
+        <option value="silver-iii">Prata III</option>
+        <option value="silver-ii">Prata II</option>
+        <option value="silver-i">Prata I</option>
+        <option value="gold-iv">Ouro IV</option>
+        <option value="gold-iii">Ouro III</option>
+        <option value="gold-ii">Ouro II</option>
+        <option value="gold-i">Ouro I</option>
+        <option value="platinum-iv">Platina IV</option>
+        <option value="platinum-iii">Platina III</option>
+        <option value="platinum-ii">Platina II</option>
+        <option value="platinum-i">Platina I</option>
+        <option value="emerald-iv">Esmeralda IV</option>
+        <option value="emerald-iii">Esmeralda III</option>
+        <option value="emerald-ii">Esmeralda II</option>
+        <option value="emerald-i">Esmeralda I</option>
+        <option value="diamond-iv">Diamante IV</option>
+        <option value="diamond-iii">Diamante III</option>
+        <option value="diamond-ii">Diamante II</option>
+        <option value="diamond-i">Diamante I</option>
+      </select>
+      
+      <button type="button" onclick="calculatePrice()">Calcular Preço</button>
+    </form>
+    
+    <div id="price-result">
+      <h2>Preço Estimado: <span id="price"></span></h2>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin: 10px 0 5px;
+  }
+  
+  select, button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #price-result {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #price {
+    font-size: 24px;
+    color: #28a745;
+  }
+  </style>
+  <script class="js">function calculatePrice() {
+    const currentElo = document.getElementById('current-elo').value;
+    const desiredElo = document.getElementById('desired-elo').value;
+  
+    const prices = {
+      "iron-iv": 10,
+      "iron-iii": 10,
+      "iron-ii": 10,
+      "iron-i": 10,
+      "bronze-iv": 10,
+      "bronze-iii": 10,
+      "bronze-ii": 10,
+      "bronze-i": 10,
+      "silver-iv": 12,
+      "silver-iii": 12,
+      "silver-ii": 12,
+      "silver-i": 12,
+      "gold-iv": 14,
+      "gold-iii": 14,
+      "gold-ii": 14,
+      "gold-i": 14,
+      "platinum-iv": 17,
+      "platinum-iii": 17,
+      "platinum-ii": 17,
+      "platinum-i": 17,
+      "emerald-iv": 25,
+      "emerald-iii": 25,
+      "emerald-ii": 25,
+      "emerald-i": 25,
+      "diamond-iv": 38,
+      "diamond-iii": 38,
+      "diamond-ii": 38,
+      "diamond-i": 38
+    };
+  
+    const elos = [
+      "iron-iv", "iron-iii", "iron-ii", "iron-i",
+      "bronze-iv", "bronze-iii", "bronze-ii", "bronze-i",
+      "silver-iv", "silver-iii", "silver-ii", "silver-i",
+      "gold-iv", "gold-iii", "gold-ii", "gold-i",
+      "platinum-iv", "platinum-iii", "platinum-ii", "platinum-i",
+      "emerald-iv", "emerald-iii", "emerald-ii", "emerald-i",
+      "diamond-iv", "diamond-iii", "diamond-ii", "diamond-i"
+    ];
+  
+    let price = 0;
+  
+    if (elos.indexOf(desiredElo) > elos.indexOf(currentElo)) {
+      for (let i = elos.indexOf(currentElo) + 1; i <= elos.indexOf(desiredElo); i++) {
+        price += prices[elos[i]];
+      }
+    } else {
+      price = 'Erro: Elo desejado deve ser maior que o Elo atual.';
+    }
+  
+    document.getElementById('price').innerText = `R$ ${price}`;
+  }
+  </script>
+  
